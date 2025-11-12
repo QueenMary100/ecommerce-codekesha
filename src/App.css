@@ -1,42 +1,389 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+@font-face {
+    font-family: 'TT Fors Trial DemiBold';
+    src: url('./assets/fonts/TT\ Fors\ Trial\ DemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;    
+}
+@font-face {
+    font-family: 'TT Fors Trial Regular';
+    src: url('./assets/fonts/TT\ Fors\ Trial\ Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:Arial,sans-serif;
+    background-color:#f5f5f5;
+    color:#333;
+}
+.navbar{
+    padding: 1rem 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    background-color: rgb(224, 169, 96);
+    display:flex;
+    justify-content: space-between;
+    /* border top corner radius to be curved */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    
+}
+.navbar h4{
+    font-family: 'TT Fors Trial DemiBold', sans-serif;
+    margin: 0;
+}
+.navbar .navLinks{
+    list-style: none;
+    margin: 0;
+}
+
+.navbar .navLinks li{
+    display: inline;
+    font-family: 'TT Fors Trial Regular', sans-serif;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.navbar .navIcons{
+    width: fit-content;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-right:1rem ;
+}
+
+.navbar .navIcons button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.iconWithSpan{
+    position: relative;
+    display: flex;
+}
+.spanHover{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+.hero{ 
+    background-color: #fefef3;
+    /* background-color: rgba(209, 177, 135, 0.5); */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    /* gap: 2rem; */
+}
+.hero .shop{
+    font-family: 'TT Fors Trial DemiBold', sans-serif;
+    font-size: 3rem;
+    margin: 3rem;
+    /* flex: 1 1 40%; */
+}
+.shop h3{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.hero .heroContent img{
+    /* flex: 1 1 55%; */
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+   
+}
+.filterContainer{
+    display:flex;  
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px 2rem;
+}
+.filterLeft{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+.filterTitle{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    position: relative;
+}
+.filterTitle h4{
+    font-family: 'TT Fors Trial DemiBold', sans-serif;
+    margin: 0;
+    font-size: 1.2rem;
+}
+.filterTitle span{
+    cursor: pointer;
+    position : absolute;
+    right: -18px;
+    top: -4px;
+}
+select, .custom-select{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px;
+    font-family: 'TT Fors Trial Regular', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ;
+}
+.custom-select{
+    position: relative;
+}
+
+/* .filterBy select:hover{
+    background-color: rgba(110, 6, 6, 0.02);
+} */
+
+.filterIcons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+.filterIcons button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.filterIcons button svg{
+    transform: rotate(90deg);
+    transform-origin: center; /* Keeps rotation centered */
+}
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.2rem;
   padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
-  padding: 2em;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fav-btn.liked {
+  color: red;
+}
+
+.color-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-dot.selected {
+  border-color: #000;
+}
+
+.card.expanded {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.expanded-section {
+  margin-top: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.color-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.color-swatch {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.order-btn {
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease-in-out;
+  padding: 1rem;
+}
+
+.carousel-item {
+  flex: 0 0 calc(25% - 1rem);
+  min-width: 250px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.carousel-item-info {
+  padding: 1rem;
+}
+
+.carousel-item h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    flex: 0 0 calc(100% - 1rem);
+  }
 }
